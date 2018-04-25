@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <div class="display">
+            <img src="<%= "/header/#{@user.header_name}" %>">
+        </div>
+        <div class="undericon"></div>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="icon">
+                <img src="<%= "/icon/#{@user.icon_name}" %>">
+                <font size="5"><b><%= @user.name %></b></font><br>
+                <font size="2">@<%= @user.login_id %></font><br>
+                <font size="2"><%= @user.profile %></font>
+            </div>
+            
+            
+            
+        </div>
+    </body>
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <div class="display">
+            <img src="<%= "/header/#{@user.header_name}" %>">
+        </div>
+        <div class="undericon"></div>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="icon">
+                <img src="<%= "/icon/#{@user.icon_name}" %>">
+                
+                <%= form_tag("/update/users/#{@user.id}", {method: :post}) do %>
+                    <input class=signup name="name" value="<%= @user.name %>">
+                    <font size="2">@<%= @user.login_id %></font><br>
+                    <textarea name="contents"><%= @user.profile %></textarea>
+                    
+                    <input class="button_signup" type="submit" value="変更">
+                <% end %>
+            </div>
+            
+            
+            
+            
+            
+            
+        </div>
+    </body>
+
+
