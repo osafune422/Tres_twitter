@@ -11,6 +11,20 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  
     <%= yield %>
   </body>
+  
+  <script>
+  $(function() {
+    setTimeout(function() {
+      $('#notice').fadeOut("slow")
+    }, 800);
+  });
+</script>
 </html>

@@ -4,10 +4,30 @@
 /* カラム全体 */
 #wrapper{
     position:absolute;
-    top:465px;
-    margin: 0 300px;
+    top:50px;
+    width:1100px;
+    margin:0 auto;
     height:100%;
-    
+//    background-color:gray;
+}
+
+/* 左カラム */
+#leftColumn {
+    float:left;
+    width:200px;
+    height:100%;
+//    background:#00ffff;
+    text-align: justify;
+    text-justify: distribute-all-lines;
+}
+
+/* 右カラム */
+#rightColumn {
+    float:right;
+    width:870px;
+    height:100%;
+    margin-left:-300px;
+//    background:red;
 }
 
 /* mypage */
@@ -22,15 +42,11 @@ div.display img{
 .undericon{
     position: absolute;
     top:550px;
+    left:0px;
     height:50px;
     width: 100%;
     background-color: white;
-}
-
-.icon{
-    float:left;
-    width:200px;
-    
+    box-shadow: 0px 2px 7px -3px black;
 }
 
 .icon img{
@@ -39,17 +55,26 @@ div.display img{
     border-radius: 50%;
 }
 
+.link_profile{
+    text-decoration: none;
+    background: white;
+    color:gray;
+    padding:5px 10px;/*内側の余白*/
+    border-radius: 20px;
+    border: solid 1px #808080;
+    
+}
 
 /* edit */
 textarea{
     width:100%;
-    height:150px;
+    height:120px;
     border-radius: 5px;
 }
 
-.signup{
-    width:40%;
-    height:35px;
+.signup_name{
+    width:80%;
+    height:20px;
     border-radius: 5px;
 }
 

@@ -12,9 +12,9 @@
                 <img src="<%= "/icon/#{@user.icon_name}" %>">
                 
                 <%= form_tag("/update/users/#{@user.id}", {method: :post}) do %>
-                    <input class=signup name="name" value="<%= @user.name %>">
+                    <input class=signup_name name="name" value="<%= @user.name %>"><br>
                     <font size="2">@<%= @user.login_id %></font><br>
-                    <textarea name="contents"><%= @user.profile %></textarea>
+                    <textarea name="profile"><%= @user.profile %></textarea>
                     
                     <input class="button_signup" type="submit" value="変更">
                 <% end %>

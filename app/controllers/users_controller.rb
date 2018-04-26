@@ -10,11 +10,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
-    @post.profile = params[:profile]
+    @user.profile = params[:profile]
     
-    if @post.save
-      flash[:notice] = "変更記事をアップしました"
-      redirect_to("/mypage/#{@user.id}/#{@user.login_id}")
+    if @user.save
+      flash.now[:notice] = "変更記事をアップしました"
+      render("users/mypage")
     else
       render("users/edit")
     end
