@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="wrapper">
+            <h2>Twitterを始めよう</h2>
+            
+            <%= form_tag("/create") do %>
+                <input class=signup placeholder="名前(またはニックネーム)" name="name" ><br><br>
+                <input class=signup placeholder="ログインID" name="login_id" ><br><br>
+                <input class=signup placeholder="パスワード" name="password" type="password">
+                <br>
+    
+                <input class="button_signup" type="submit" value="アカウント作成">
+            <% end %>
+        </div>
+    </body>
+
+

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'mypage/:id/:login_id', to:'users#mypage'
+  get 'signup', to:'users#new'
+  post 'create', to: 'users#create'
   get 'edit/:id/', to:'users#edit'
   post 'update/users/:id', to:'users#update'
   
