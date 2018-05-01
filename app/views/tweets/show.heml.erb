@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    
+    <body>
+        <div id="wrapper">
+            
+            
+            <!-- 左カラム　開始 -->
+            <div id="leftColumn_mypage" class="icon">
+                <img src="<%= "/icon/#{@user.icon_name}" %>">
+            </div>
+            <!-- 左カラム　終了 -->
+        
+            <!-- 右カラム　開始 -->
+            <div id="rightColumn_mypage">
+            右カラム
+            
+            </div>
+            <!-- 右カラム　終了 -->
+            
+            <h1><%= @tweet.content %></h1>
+            
+            
+        </div>
+    </body>
+
+

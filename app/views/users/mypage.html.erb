@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        
+    </head>
     <body>
         <div class="display">
             <img src="<%= "/header/#{@user.header_name}" %>">
         </div>
         <div class="undericon">
-            <a class="link_profile" href="<%= "/edit/#{@user.id}" %>">プロフィールを編集</a>
+            <a class="link_profile" href="./edit.html.erb">プロフィールを編集</a>
         </div>
         
         
@@ -22,7 +25,19 @@
         
             <!-- 右カラム　開始 -->
             <div id="rightColumn_mypage">
-            右カラム
+                <% @user.tweets.each do |tweet| %>
+                    <div class="posts-index-item">
+                        <div class="post-left">
+                            <img src="<%= "/icon/#{tweet.user.icon_name}" %>">
+                        </div>
+                        <div class="post-right">
+                            <div class="post-user-name">
+                                <%= link_to(tweet.user.name, "/users/#{tweet.user.id}") %>
+                            </div>
+                            <a><%= link_to(tweet.content, "/show/#{tweet.id}") %></a>
+                        </div>
+                    </div>
+                <% end %>
             
             </div>
             <!-- 右カラム　終了 -->

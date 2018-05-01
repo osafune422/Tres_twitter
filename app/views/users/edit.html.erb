@@ -8,20 +8,31 @@
     </head>
     <body>
         <div id="wrapper">
-            <div class="icon">
+            
+            <!-- 左カラム　開始 -->
+            <div id="leftColumn_mypage" class="icon">
                 <img src="<%= "/icon/#{@user.icon_name}" %>">
                 
-                <%= form_tag("/update/users/#{@user.id}", {method: :post}) do %>
+                <%= form_tag("/update/users/#{@user.id}", {method: :post, multipart: true}) do %>
                     <input class=signup_name name="name" value="<%= @user.name %>"><br>
                     <font size="2">@<%= @user.login_id %></font><br>
-                    <textarea name="profile"><%= @user.profile %></textarea>
+                    <textarea name="profile"><%= @user.profile %></textarea><br>
+                    <p>アイコン画像</p>
+                    <input type = "file" name = "icon_name">
+                    <p>ヘッダー画像</p>
+                    <input type = "file" name = "header_name">
                     
                     <input class="button_signup" type="submit" value="変更">
                 <% end %>
             </div>
+            <!-- 左カラム　終了 -->
+        
+            <!-- 右カラム　開始 -->
+            <div id="rightColumn_mypage">
+            右カラム
             
-            
-            
+            </div>
+            <!-- 右カラム　終了 -->
             
             
             

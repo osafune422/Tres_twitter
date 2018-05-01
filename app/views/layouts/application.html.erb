@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Task</title>
+    <title>Twitter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <div class=header>
+    <div class="header">
       <% if @current_user == nil %>
-        <%= link_to("ログイン", "/") %>
+        <i class="loginbutton"><%= link_to("ログイン", "/login") %></i>
+      <% else %>
+        <i class="loginbutton"><%= link_to("ログアウト", "/logout", {method: :post}) %></i>
       <% end %>
       
     </div>

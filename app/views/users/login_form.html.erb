@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="wrapper">
+            <h2>IDを使ってログインする</h2>
+            
+            <%= form_tag("/login") do %>
+                <input class=signup placeholder="ログインID" name="login_id" value="<%= @login_id %>"><br><br>
+                <input class=signup placeholder="パスワード" name="password" value="<%= @password %>" type="password">
+                <br>
+    
+                <input class="button_signup" type="submit" value="ログイン">
+            <% end %>
+    
+            <%= link_to("新規登録", "/signup") %>
+        </div>
+    </body>
+
+
