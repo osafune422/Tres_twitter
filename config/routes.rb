@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  post "like/:tweet_id" => "likes#like"
+  post "like/destroy/:tweet_id" => "likes#destroy"
+  
   get 'show/:id', to: 'tweets#show'
+  get 'tweets/new', to: 'tweets#new_tweet'
+  post 'tweet', to: 'tweets#tweet'
   
   get 'tweets/timeline'
   get 'mypage/:id/:login_id', to:'users#mypage'

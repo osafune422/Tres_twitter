@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    
+    <body>
+        <div id="wrapper">
+            
+            
+            <!-- 左カラム　開始 -->
+            <div id="leftColumn" class="icon_show">
+                <img src="<%= "/icon/#{@current_user.icon_name}" %>">
+            </div>
+            <!-- 左カラム　終了 -->
+        
+            <!-- 右カラム　開始 -->
+            <div id="rightColumn">
+                <%= form_tag("/tweet", {method: :post}) do %>
+                    <textarea name="content" placeholder="いまどうしてる？"></textarea>
+                    <input class="button_signup" type="submit" value="ツイート">
+                <% end %>
+            </div>
+            <!-- 右カラム　終了 -->
+            
+        </div>
+    </body>
+
+

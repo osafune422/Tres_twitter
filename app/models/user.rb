@@ -6,7 +6,10 @@ class User < ApplicationRecord
     # passwordのエラー条件
     validates :password, {presence: true}
     
+    has_secure_password
+    
     def tweets
-        return Tweet.where(user_id: self.id)
+        @tweet=Tweet.where(user_id: self.id)
+        return @tweet.all.order("created_at DESC")
     end
 end

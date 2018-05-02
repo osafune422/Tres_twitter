@@ -11,10 +11,14 @@
       <% if @current_user == nil %>
         <i class="loginbutton"><%= link_to("ログイン", "/login") %></i>
       <% else %>
+        <%= link_to("/tweets/new") do %>
+          <span class="fa fa-edit write"></span>
+        <% end %>
         <i class="loginbutton"><%= link_to("ログアウト", "/logout", {method: :post}) %></i>
       <% end %>
       
     </div>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
 
   <body>

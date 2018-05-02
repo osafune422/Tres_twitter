@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="wrapper">
+            
+            
+            <!-- 左カラム　開始 -->
+            <div id="leftColumn" class="icon_show">
+                <%= link_to("/mypage/#{@user.id}/#{@user.login_id}") do %>
+                    <img src="<%= "/icon/#{@user.icon_name}" %>">
+                <% end %>
+            
+            </div>
+            <!-- 左カラム　終了 -->
+        
+            <!-- 右カラム　開始 -->
+            <div id="rightColumn">
+                <div class="post-user-name">
+                    <font size="5"><b><%= link_to(@tweet.user.name, "/mypage/#{@tweet.user.id}/#{@tweet.user.login_id}") %></b></font><br>
+                </div>
+                <font size="2">@<%= @user.login_id %></font><br>
+            
+            </div>
+            <!-- 右カラム　終了 -->
+            
+            
+            
+        </div>
+        <!-- ツイートカラム　開始 -->
+            <div id="contentColumn">
+                <h1><%= @tweet.content %></h1>
+                <font size="2"><%= show_time(@tweet[:created_at]) %></font>
+                <br><br>
+                <% if Like.find_by(userlike_id: @current_user.id, tweet_id: @tweet.id) %>
+                    <%= link_to("/like/destroy/#{@tweet.id}", {method: "post"}) do %>
+                        <span class="fa fa-heart like-btn"></span>
+                    <% end %>
+                <% else %>    
+                    <%= link_to("/like/#{@tweet.id}",{method: "post"}) do %>
+                        <span class="fa fa-heart unlike-btn"></span>
+                    <% end %>
+                <% end %>
+                <%= @likes_count %>
+                
+                
+            </div>
+            <!-- ツイートカラム　終了 -->
+    </body>
+
+

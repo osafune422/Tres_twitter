@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, {only:[:edit]}       #ログインなしの時
+  before_action :forbid_login_user, {only:[:new, :create, :login_form, :login]}       #ログインありの時
+  before_action :ensure_correct_user, {only:[:edit, :update]}      #ユーザーのidが異なる時
+  
   def mypage
     @user = User.find_by(id: params[:id])
   end
@@ -46,8 +50,8 @@ class UsersController < ApplicationController
     end
     
     if @user.save
-      flash.now[:notice] = "アカウント情報を変更しました"
-      render("users/mypage")
+      flash[:notice] = "アカウント情報を変更しました"
+      redirect_to("/mypage/#{@user.id}/#{@user.login_id}")
     else
       render("users/edit")
     end
@@ -58,9 +62,9 @@ class UsersController < ApplicationController
   end
   
   def login
-    @user=User.find_by(login_id: params[:login_id], password: params[:password])
+    @user=User.find_by(login_id: params[:login_id])
    
-    if @user
+    if @user && @user.authenticate(params[:password])
       session[:user_id]=@user.id
       flash[:notice]="ログインしました"
       redirect_to("/mypage/#{@user.id}/#{@user.login_id}")
@@ -74,7 +78,13 @@ class UsersController < ApplicationController
   
   def logout
     session[:user_id]=nil
-    flash[:notice]="ログアウトしました"
     redirect_to("/login")
+  end
+  
+  def ensure_correct_user
+    if @current_user.id != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to("/mypage/#{@current_user.id}/#{@current_user.login_id}")
+    end
   end
 end

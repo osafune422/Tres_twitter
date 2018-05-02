@@ -8,7 +8,9 @@
             <img src="<%= "/header/#{@user.header_name}" %>">
         </div>
         <div class="undericon">
-            <a class="link_profile" href="./edit.html.erb">プロフィールを編集</a>
+            <%= link_to("/edit/#{@user.id}") do %>
+                <a class="link_profile">プロフィールを編集</a>
+            <% end %>
         </div>
         
         
@@ -32,9 +34,12 @@
                         </div>
                         <div class="post-right">
                             <div class="post-user-name">
-                                <%= link_to(tweet.user.name, "/users/#{tweet.user.id}") %>
+                                <a><%= link_to(tweet.user.name, "/mypage/#{tweet.user.id}/#{tweet.user.login_id}") %></a>
+                                <font size="2">@<%= @user.login_id %></font><br>
                             </div>
-                            <a><%= link_to(tweet.content, "/show/#{tweet.id}") %></a>
+                            <div class="post-content">
+                                <a><%= link_to(tweet.content, "/show/#{tweet.id}") %></a>
+                            </div>
                         </div>
                     </div>
                 <% end %>

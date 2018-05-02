@@ -21,6 +21,13 @@
     width: 100%;
     background-color: white;
     box-shadow: 0px 3px 10px -3px black;
+/*    clear: left*/
+    text-align: center;
+    vertical-align: middle;
+}
+
+.write{
+    color:#00BFFF;
 }
 
 body{
@@ -43,9 +50,17 @@ body{
     font-size: 14px;
 }
 
-.loginbutton{
-    float: right;
-    
+.button_tweet{
+  font-size: 15px;
+  text-align: center;
+  padding: 5px 5px;
+  background-color: #59b1eb;
+  color: #fff;
+  border-style: none;
+  border-radius: 20px; /*丸み*/
+  /*margin: 5px 0px;*/
 }
-
+.button_tweet:hover{
+  background-color: #1E90FF;
+}
 
